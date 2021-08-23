@@ -7,8 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.lilcode.example.jetpacknavigationdemo.R
+import com.lilcode.example.jetpacknavigationdemo.databinding.MainFragmentBinding
 
 class MainFragment : Fragment() {
+
+    private var _binding: MainFragmentBinding? = null
+    private val binding get() = requireNotNull(_binding)
 
     companion object {
         fun newInstance() = MainFragment()
@@ -20,7 +24,8 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        MainFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
