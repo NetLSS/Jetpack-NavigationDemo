@@ -1,5 +1,6 @@
 package com.lilcode.example.jetpacknavigationdemo
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -35,6 +36,11 @@ class SecondFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_second, container, false)
+    }
+
+    interface OnFragmentInteractionListener {
+        // TODO: 인자 타입과 이름을 변경함
+        fun onFragmentInteraction(uri: Uri)
     }
 
     companion object {

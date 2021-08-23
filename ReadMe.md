@@ -76,3 +76,19 @@
         tools:layout="@layout/fragment_second" />
 </navigation>
 ```
+
+## OnFragmentInteractionListener 구현하기
+
+```kotlin
+class MainActivity : AppCompatActivity(), SecondFragment.OnFragmentInteractionListener {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.main_activity)
+    }
+
+    override fun onFragmentInteraction(uri: Uri) {
+        
+    }
+}
+```
