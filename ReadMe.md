@@ -92,3 +92,19 @@ class MainActivity : AppCompatActivity(), SecondFragment.OnFragmentInteractionLi
     }
 }
 ```
+
+## 액션 실행하기
+
+```kotlin
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        binding.mainButton.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.mainToSecond)
+        }
+
+        // 또는
+        binding.mainButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.mainToSecond, null))
+    }
+```
