@@ -45,3 +45,34 @@
         tools:layout="@layout/main_fragment" />
 </navigation>
 ```
+
+## 그래프에 액션 추가
+
+- 두 번째 fragment 를 추가 및 디자인
+- 이후 그래프에서 home fragment -> second fragment 로 가는 액션 추가
+- design 상에서 추가 하는 것이 편리
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.lilcode.example.jetpacknavigationdemo.ui.main.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment" >
+        <action
+            android:id="@+id/mainToSecond"
+            app:destination="@id/secondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.lilcode.example.jetpacknavigationdemo.SecondFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second" />
+</navigation>
+```
