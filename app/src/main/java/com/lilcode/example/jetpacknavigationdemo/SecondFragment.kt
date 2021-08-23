@@ -38,7 +38,7 @@ class SecondFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
@@ -47,6 +47,14 @@ class SecondFragment : Fragment() {
     interface OnFragmentInteractionListener {
         // TODO: 인자 타입과 이름을 변경함
         fun onFragmentInteraction(uri: Uri)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        arguments?.let {
+            val args = SecondFragmentArgs.fromBundle(it)
+            binding.argText.text = args.message
+        }
     }
 
     companion object {
