@@ -12,3 +12,18 @@
 ```
 
 ## 네비게이션 호스트 선언 
+
+- 메인 엑티비티 내부에 
+
+```xml
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/navigation_graph" />
+```
+
+- 를 추가 했다.
+- 이후 메인 액티비티 코드 상에서 main_frame 로드 부분을 삭제함 (네비게이션을 통해 이동시킬 것임.)
