@@ -35,11 +35,14 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         binding.mainButton.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.mainToSecond)
+            var action: MainFragmentDirections.MainToSecond = MainFragmentDirections.mainToSecond()
+
+            action.message = binding.userEditText.text.toString()
+            Navigation.findNavController(it).navigate(action)
         }
 
         // 또는
-        binding.mainButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.mainToSecond, null))
+        //binding.mainButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.mainToSecond, null))
     }
 
 }
